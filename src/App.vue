@@ -27,9 +27,7 @@
 </template>
 
 <script type="text/javascript">
-
-import store from './store.js'
-
+  
 export default {
   name: 'App',
   data () {
