@@ -17,6 +17,7 @@
                 <v-btn to="/aboutview" class="mr-2"> About </v-btn>
                   <v-btn to="/contact" class="mr-2"> Contacts </v-btn>
                     <v-btn to="/members" class="mr-2"> Members </v-btn>
+                    <v-btn @click="logout" v-if="this.$store.state.userIsAuthorized"> Logout </v-btn>
           </v-toolbar-title>
       </v-toolbar>
       <v-content>
@@ -24,6 +25,32 @@
       </v-content>
   </v-app>
 </template>
+
+<script type="text/javascript">
+
+import store from './store.js'
+
+export default {
+  name: 'App',
+  data () {
+    return{
+
+      clientId: process.env.VUE_APP_AUTH0_CONFIG_CLIENTID, //setting global variables using .env file
+      domain: process.env.VUE_APP_AUTH0_CONFIG_DOMAIN
+
+    }
+  },
+  methods:{
+    logout(){
+      console.log('logging out');
+    }
+  },
+  beforeCreate(){
+
+  }
+}
+</script>
+
 
 <style lang="scss">
 #app {
