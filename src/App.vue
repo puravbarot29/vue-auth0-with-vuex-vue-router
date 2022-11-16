@@ -27,7 +27,7 @@
 </template>
 
 <script type="text/javascript">
-  
+
 export default {
   name: 'App',
   data () {
