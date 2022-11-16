@@ -66,9 +66,9 @@ router.beforeEach((to,from,next)=>{
     // set localAuthTokenCheck true if unexpired / false if expired
     routerAuthCheck = new Date().getTime() < expiresAt;
   }
-
+//we are not checkin if the token is valid, all we are checking for is lifetime
    // set global ui understanding of authentication
-   store.commit('setUserIsAuthenticated', routerAuthCheck); 
+   store.commit('setUserIsAuthenticated', routerAuthCheck);
 
 //take the "to" and sends each one of them to the record, which requires auth "meta"
  if (to.matched.some(record => record.meta.requiresAuth)){
@@ -83,6 +83,7 @@ router.beforeEach((to,from,next)=>{
 
  } else {
    //this is allow page to load, if we dont call next then route never loads
+   store.commit('setUserIsAuthenticated', false);
    next();
  }
 

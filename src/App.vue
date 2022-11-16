@@ -40,7 +40,7 @@ export default {
   },
   methods:{
     logout(){
-      console.log('logging out');
+      this.$store.dispatch('auth0Logout');
     }
   },
   beforeCreate(){
